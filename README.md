@@ -2,6 +2,9 @@
 
 This repository contains a digital love letter created with HTML and CSS. The project was developed as a creative way to express feelings visually and interactively.
 
+![image](https://github.com/user-attachments/assets/dfe7db76-3e9d-4b3d-ba87-52c70ec28aa2)
+![image](https://github.com/user-attachments/assets/9d8dff7d-5274-4154-ab93-dff6dddcbcbf)
+
 ---
 
 ## 🚀 How to view the project
