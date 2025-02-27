@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: #ffe6e6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .envelope-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .envelope {
+            width: 150px;
+            height: 100px;
+            background: #ff6f91;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-bottom: 50px solid #ff4f7a;
+        }
+
+        .envelope::after {
+            content: '💌';
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .open-message {
+            position: absolute;
+            top: -50px;
+            font-size: 2rem;
+            color: #ff4f7a;
+            font-weight: bold;
+            animation: blink 1.5s infinite;
+            text-align: center;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .card {
+            display: none;
+            background: #ffcccc;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+            border: 2px solid #ff99aa;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #cc3366;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #993355;
+            line-height: 1.6;
+        }
+
+        .heart {
+            color: #cc3366;
+            font-size: 3rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .heart-fly {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatUp 3s ease-in-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-200px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="envelope-container" onclick="openLetter()">
+        <div class="open-message">Abra-me </div>
+        <div class="envelope"></div>
+    </div>
+    <div class="card" id="loveLetter">
+        <h1>Querido Davi, </h1>
+        <p>Desde o momento em que nossos caminhos se cruzaram, minha vida ganhou cores que eu nem sabia que existiam.
+            Cada olhar seu, cada sorriso, cada palavra dita com aquela doçura que só você tem, fez com que meu coração
+            batesse mais forte e mais rápido. Eu sou grata por cada segundo ao seu lado, por cada memória que
+            construímos
+            juntos e por cada sonho que ainda vamos realizar. Você é a pessoa que eu sempre quis ao meu lado, e eu
+            prometo te
+            amar, cuidar de você e estar presente em todos os momentos, sejam eles bons ou ruins. Com todo o meu amor,
+        </p>
+        <h1>Beatriz </h1>
+        <p class="heart">❤️</p>
+    </div>
+    <script>
+        function openLetter() {
+            const card = document.getElementById('loveLetter');
+            card.style.display = 'block';
+            setTimeout(() => {
+                card.style.opacity = '1';
+            }, 100);
+
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-fly');
+                heart.innerHTML = '&#10084;&#65039;';
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.top = '100vh';
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+    </script>
+</body>
+
+</html>
